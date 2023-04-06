@@ -25,7 +25,7 @@ public class Main {
             StringBuilder sb = new StringBuilder();
             for (int i = 0; i < 10; i++) {
                 char[] text = createRandomTextArray();
-                System.out.println("char array: " + Arrays.toString(text));
+                System.out.printf("%s%n", Arrays.toString(text));
                 for (char c : text) {
                     sb.append(c);
                     w.write(sb);
@@ -34,8 +34,8 @@ public class Main {
                     w.erase(sb);
                 }
             }
-            System.out.println(sb + ": " + w.getClass().getSimpleName() + " {" +
-                    "inkLevel=" + w.inkLevel + '}');
+            System.out.println(sb);
+            System.out.printf("%s inkLevel= %.2f%%%n", w.getClass().getSimpleName(), w.inkLevel);
         }
     }
 

@@ -12,16 +12,15 @@ public abstract class WritingTool {
         this.canErase = canErase;
     }
 
+    public abstract double setInkLossPerChar(StringBuilder sb);
+
     public void write(StringBuilder sb) {
-        inkLossPerChar = setInkLossPerChar(sb);
-        inkLevel = inkLevel - inkLossPerChar;
+        inkLevel -= setInkLossPerChar(sb);
     }
 
     public void erase(StringBuilder sb) {
         sb.delete(sb.length() - 1, sb.length());
     }
-
-    public abstract double setInkLossPerChar(StringBuilder sb);
 
 
     @Override
