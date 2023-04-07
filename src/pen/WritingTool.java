@@ -19,9 +19,7 @@ public abstract class WritingTool {
         }
     }
 
-    public void erase(StringBuilder sb) {
-        sb.delete(sb.length() - 1, sb.length());
-    }
+    public abstract void erase(StringBuilder sb);
 
 
     @Override

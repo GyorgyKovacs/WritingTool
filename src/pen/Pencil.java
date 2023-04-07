@@ -12,4 +12,9 @@ public class Pencil extends WritingTool {
         return inkLossPerChar;
     }
 
+    @Override
+    public void erase(StringBuilder sb) {
+        sb.delete(sb.length() - 1, sb.length());
+    }
+
 }
