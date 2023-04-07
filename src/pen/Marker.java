@@ -3,9 +3,11 @@ package pen;
 class Marker extends WritingTool {
 
 
-    public Marker(double inkLossPerChar, boolean canErase) {
-        super(inkLossPerChar, canErase);
+    public Marker(double inkLossPerChar) {
+        super(inkLossPerChar);
     }
+    @Override
+    public void erase(StringBuilder sb){}
 
     @Override
     public double setInkLossPerChar(StringBuilder sb) {

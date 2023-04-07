@@ -3,8 +3,8 @@ package pen;
 
 class Pen extends WritingTool {
 
-    public Pen(double inkLossPerChar, boolean canErase) {
-        super(inkLossPerChar, canErase);
+    public Pen(double inkLossPerChar) {
+        super(inkLossPerChar);
     }
 
     @Override

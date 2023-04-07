@@ -6,10 +6,12 @@ import pen.WritingTool;
 import java.util.Arrays;
 import java.util.Comparator;
 import java.util.Random;
+
 /**
  * This is the main class for the WritingTool application.
  * It creates a set of random writing tools and char arrays,
- * writes out the concatenated arrays and sorts the writing tools by ink level.
+ * writes out the concatenated arrays and the sorted writing tools by ink level ascending.
+ *
  * @author Gyorgy Kovacs
  */
 public class Main {
@@ -32,9 +34,7 @@ public class Main {
             for (int i = 0; i < 10; i++) {
                 char[] text = createRandomTextArray();
                 writingTool.write(sb, text);
-                if (writingTool.canErase) {
-                    writingTool.erase(sb);
-                }
+                writingTool.erase(sb);
             }
             System.out.printf("%-6s : inkLevel= %.2f%% >>> %s%n"//
                     , writingTool.getClass().getSimpleName(), writingTool.inkLevel, sb);
@@ -57,7 +57,7 @@ public class Main {
     private void printFormattedArray(WritingTool[] writingTools) {
         System.out.printf("%nSORTED WRITING TOOLS >>>%n");
         for (WritingTool tool : writingTools) {
-            System.out.printf("%-6s : inkLevel = %.2f%n", tool.getClass().getSimpleName(), tool.inkLevel);
+            System.out.printf("%-6s : inkLevel = %.2f%%%n", tool.getClass().getSimpleName(), tool.inkLevel);
         }
     }
 

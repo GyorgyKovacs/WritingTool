@@ -17,9 +17,9 @@ public class PenFactory {
         for (int i = 0; i < writingTools.length; i++) {
             int randomNumber = random.nextInt(3);
             switch (randomNumber) {
-                case 0 -> writingTools[i] = new Pen(1.15, true);
-                case 1 -> writingTools[i] = new Pencil(0.95, true);
-                case 2 -> writingTools[i] = new Marker(1, false);
+                case 0 -> writingTools[i] = new Pen(1.15);
+                case 1 -> writingTools[i] = new Pencil(0.95);
+                case 2 -> writingTools[i] = new Marker(1);
             }
         }
     }

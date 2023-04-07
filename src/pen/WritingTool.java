@@ -4,12 +4,10 @@ public abstract class WritingTool {
 
     public double inkLevel;
     public double inkLossPerChar;
-    public boolean canErase;
 
-    public WritingTool(double inkLossPerChar, boolean canErase) {
+    public WritingTool(double inkLossPerChar) {
         this.inkLevel = 100;
         this.inkLossPerChar = inkLossPerChar;
-        this.canErase = canErase;
     }
 
     public abstract double setInkLossPerChar(StringBuilder sb);
