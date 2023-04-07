@@ -12,14 +12,14 @@ public class PenFactory {
         return INSTANCE;
     }
 
-    public void createRandomToolsArray(WritingTool[] writingTool) {
+    public void createRandomToolsArray(WritingTool[] writingTools) {
         Random random = new Random();
-        for (int i = 0; i < writingTool.length; i++) {
+        for (int i = 0; i < writingTools.length; i++) {
             int randomNumber = random.nextInt(3);
             switch (randomNumber) {
-                case 0 -> writingTool[i] = new Pen(1.15, true);
-                case 1 -> writingTool[i] = new Pencil(0.95, true);
-                case 2 -> writingTool[i] = new Marker(1, false);
+                case 0 -> writingTools[i] = new Pen(1.15, true);
+                case 1 -> writingTools[i] = new Pencil(0.95, true);
+                case 2 -> writingTools[i] = new Marker(1, false);
             }
         }
     }

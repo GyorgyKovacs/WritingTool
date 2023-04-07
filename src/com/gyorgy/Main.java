@@ -1,8 +1,10 @@
 package com.gyorgy;
 
-import pen.*;
+import pen.PenFactory;
+import pen.WritingTool;
 
 import java.util.Arrays;
+import java.util.Comparator;
 import java.util.Random;
 
 public class Main {
@@ -14,28 +16,32 @@ public class Main {
         WritingTool[] writingTools = new WritingTool[10];
         PenFactory.getINSTANCE().createRandomToolsArray(writingTools);
         writeText(writingTools);
-        printSortedArray();
+        Arrays.sort(writingTools, Comparator.comparingDouble(wt -> wt.inkLevel));
+        printSortedArray(writingTools);
     }
 
-    private void printSortedArray() {
+    private void printSortedArray(WritingTool[] writingTools) {
+        System.out.printf("%nSORTED WRITING TOOLS >>>%n");
+        for (WritingTool tool : writingTools) {
+            System.out.printf("%s, inkLevel=%.2f%n", tool.getClass().getSimpleName(), tool.inkLevel);
+        }
     }
 
     private void writeText(WritingTool[] writingTools) {
-        for (WritingTool w : writingTools) {
+        for (WritingTool writingTool : writingTools) {
             StringBuilder sb = new StringBuilder();
             for (int i = 0; i < 10; i++) {
                 char[] text = createRandomTextArray();
-                System.out.printf("%s%n", Arrays.toString(text));
                 for (char c : text) {
                     sb.append(c);
-                    w.write(sb);
+                    writingTool.write(sb);
                 }
-                if (w.canErase) {
-                    w.erase(sb);
+                if (writingTool.canErase) {
+                    writingTool.erase(sb);
                 }
             }
-            System.out.println(sb);
-            System.out.printf("%s inkLevel= %.2f%%%n", w.getClass().getSimpleName(), w.inkLevel);
+            System.out.printf("%-6s: inkLevel= %.2f%% >>> %s%n"//
+                    , writingTool.getClass().getSimpleName(), writingTool.inkLevel, sb);
         }
     }
 
